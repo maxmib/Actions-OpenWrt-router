@@ -110,5 +110,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_firmware_ubnterx
+        name: OpenWrt_firmware_newifid2
         path: ${{ env.FIRMWARE }}
