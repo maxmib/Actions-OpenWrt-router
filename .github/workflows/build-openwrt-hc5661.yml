@@ -26,7 +26,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: hc5661.config
-  DIY_SH: diy.sh
+  DIY_SH: 
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -60,7 +60,7 @@ jobs:
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: cd openwrt &&  sed -i 's/#src-git/src-git/g' feeds.conf.default &&  ./scripts/feeds update -a 
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
